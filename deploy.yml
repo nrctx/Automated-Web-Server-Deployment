@@ -1,0 +1,27 @@
+---
+- name: Setup Debian Web Server
+  hosts: webservers
+  become: yes  # This runs commands as 'sudo'
+
+  tasks:
+    - name: Update apt repo and cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: present
+
+    - name: Deploy dynamic index page
+      template:
+        src: index.html.j2
+        dest: /var/www/html/index.html
+        mode: '0644'
+
+    - name: Ensure Apache is running and starts on boot
+      service:
+        name: apache2
+        state: started
+        enabled: yes

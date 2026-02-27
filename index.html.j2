@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ansible Project</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 50px; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+        h1 { color: #d70a53; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Deployment Successful!</h1>
+        <p>This web server was configured by <b>Ansible</b>.</p>
+        <hr>
+        <p><b>Server Hostname:</b> {{ ansible_hostname }}</p>
+        <p><b>Operating System:</b> {{ ansible_distribution }} {{ ansible_distribution_version }}</p>
+    </div>
+</body>
+</html>
